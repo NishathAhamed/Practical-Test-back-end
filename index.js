@@ -1,10 +1,10 @@
 const express=require('express'),app=express(),bodyparser=require('body-parser');
-const db=require('./db'),userRoutes=require('./controllers/user.controller'),adminRoutes=require('./controllers/admin.controller')
+const db=require('./db'),userRoutes=require('./controllers/user.controller'),adminRoutes=require('./controllers/login.controller'),loginRoutes=require('./controllers/admin.controller')
 
 app.use(bodyparser.json())
 app.use('/api/user',userRoutes)
 app.use('/api/admin',adminRoutes)
-
+app.use('/api/login',adminRoutes)
 
 db.query("SELECT 1")
 .then(()=>{
